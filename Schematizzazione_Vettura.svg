@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 340" width="840" height="340" style="background:#fff">
+  <!-- Schematizzazione_Vettura — generato da dxf_to_svg.js -->
+  <line x1="20.00" y1="220.00" x2="820.00" y2="220.00" stroke="#007700" stroke-width="2"/>
+  <circle cx="320.00" cy="185.00" r="35.00" fill="none" stroke="#006699" stroke-width="1.5"/>
+  <circle cx="560.00" cy="185.00" r="35.00" fill="none" stroke="#006699" stroke-width="1.5"/>
+  <line x1="315.00" y1="185.00" x2="325.00" y2="185.00" stroke="#997700" stroke-width="2"/>
+  <line x1="320.00" y1="190.00" x2="320.00" y2="180.00" stroke="#997700" stroke-width="2"/>
+  <line x1="555.00" y1="185.00" x2="565.00" y2="185.00" stroke="#997700" stroke-width="2"/>
+  <line x1="560.00" y1="190.00" x2="560.00" y2="180.00" stroke="#997700" stroke-width="2"/>
+  <line x1="180.00" y1="212.00" x2="285.30" y2="212.00" stroke="#997700" stroke-width="2"/>
+  <path d="M 354.72 212.03 A 44 44 0 1 0 285.28 212.03" fill="none" stroke="#997700" stroke-width="2"/>
+  <line x1="354.70" y1="212.00" x2="525.30" y2="212.00" stroke="#997700" stroke-width="2"/>
+  <path d="M 594.72 212.03 A 44 44 0 1 0 525.28 212.03" fill="none" stroke="#997700" stroke-width="2"/>
+  <line x1="594.70" y1="212.00" x2="680.00" y2="212.00" stroke="#997700" stroke-width="2"/>
+  <line x1="180.00" y1="212.00" x2="180.00" y2="185.00" stroke="#997700" stroke-width="2"/>
+  <line x1="180.00" y1="185.00" x2="192.00" y2="168.00" stroke="#997700" stroke-width="2"/>
+  <line x1="192.00" y1="168.00" x2="208.00" y2="158.00" stroke="#997700" stroke-width="2"/>
+  <line x1="208.00" y1="158.00" x2="245.00" y2="148.00" stroke="#997700" stroke-width="2"/>
+  <line x1="245.00" y1="148.00" x2="295.00" y2="140.00" stroke="#997700" stroke-width="2"/>
+  <line x1="295.00" y1="140.00" x2="325.00" y2="137.00" stroke="#997700" stroke-width="2"/>
+  <line x1="325.00" y1="137.00" x2="358.00" y2="92.00" stroke="#997700" stroke-width="2"/>
+  <line x1="358.00" y1="92.00" x2="485.00" y2="92.00" stroke="#997700" stroke-width="2"/>
+  <line x1="485.00" y1="92.00" x2="530.00" y2="117.00" stroke="#997700" stroke-width="2"/>
+  <line x1="530.00" y1="117.00" x2="590.00" y2="119.00" stroke="#997700" stroke-width="2"/>
+  <line x1="590.00" y1="119.00" x2="640.00" y2="142.00" stroke="#997700" stroke-width="2"/>
+  <line x1="640.00" y1="142.00" x2="680.00" y2="168.00" stroke="#997700" stroke-width="2"/>
+  <line x1="680.00" y1="168.00" x2="680.00" y2="212.00" stroke="#997700" stroke-width="2"/>
+  <line x1="577.00" y1="119.00" x2="577.00" y2="72.00" stroke="#997700" stroke-width="2"/>
+  <line x1="598.00" y1="119.00" x2="598.00" y2="72.00" stroke="#997700" stroke-width="2"/>
+  <line x1="553.00" y1="70.00" x2="623.00" y2="70.00" stroke="#997700" stroke-width="2"/>
+  <line x1="553.00" y1="74.00" x2="623.00" y2="74.00" stroke="#997700" stroke-width="2"/>
+  <line x1="553.00" y1="74.00" x2="553.00" y2="70.00" stroke="#997700" stroke-width="2"/>
+  <line x1="623.00" y1="74.00" x2="623.00" y2="70.00" stroke="#997700" stroke-width="2"/>
+  <line x1="320.00" y1="220.00" x2="120.00" y2="208.57" stroke="#cc0000" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="560.00" y1="220.00" x2="760.00" y2="206.67" stroke="#cc0000" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <path d="M 260.10 216.58 A 60 60 0 0 0 260.00 220.00" fill="none" stroke="#2244bb" stroke-width="0.8"/>
+  <path d="M 620.00 220.00 A 60 60 0 0 0 619.87 216.01" fill="none" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="420.00" y1="220.00" x2="420.00" y2="212.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="416.00" y1="220.00" x2="424.00" y2="220.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="416.00" y1="212.00" x2="424.00" y2="212.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="420.00" y1="220.00" x2="418.50" y2="218.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="420.00" y1="220.00" x2="421.50" y2="218.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="420.00" y1="212.00" x2="418.50" y2="214.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="420.00" y1="212.00" x2="421.50" y2="214.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="320.00" y1="268.00" x2="560.00" y2="268.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="180.00" y1="253.00" x2="320.00" y2="253.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="560.00" y1="253.00" x2="680.00" y2="253.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="180.00" y1="283.00" x2="680.00" y2="283.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="180.00" y1="220.00" x2="180.00" y2="287.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="320.00" y1="220.00" x2="320.00" y2="272.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="560.00" y1="220.00" x2="560.00" y2="272.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="680.00" y1="220.00" x2="680.00" y2="287.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="320.00" y1="268.00" x2="323.00" y2="266.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="320.00" y1="268.00" x2="323.00" y2="270.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="560.00" y1="268.00" x2="557.00" y2="266.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="560.00" y1="268.00" x2="557.00" y2="270.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="180.00" y1="253.00" x2="183.00" y2="251.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="180.00" y1="253.00" x2="183.00" y2="255.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="320.00" y1="253.00" x2="317.00" y2="251.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="320.00" y1="253.00" x2="317.00" y2="255.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="560.00" y1="253.00" x2="563.00" y2="251.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="560.00" y1="253.00" x2="563.00" y2="255.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="680.00" y1="253.00" x2="677.00" y2="251.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="680.00" y1="253.00" x2="677.00" y2="255.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="180.00" y1="283.00" x2="183.00" y2="281.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="180.00" y1="283.00" x2="183.00" y2="285.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="680.00" y1="283.00" x2="677.00" y2="281.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="680.00" y1="283.00" x2="677.00" y2="285.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="145.00" y="205.00" font-size="7" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">alfa = 3.27 gradi</text>
+  <text x="145.00" y="215.00" font-size="5" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">(ang. attacco ant.)</text>
+  <text x="583.00" y="205.00" font-size="7" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">beta = 3.81 gradi</text>
+  <text x="583.00" y="215.00" font-size="5" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">(ang. attacco post.)</text>
+  <text x="427.00" y="217.50" font-size="5.5" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">h = 8 cm</text>
+  <text x="370.00" y="263.00" font-size="7" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">PASSO = 240 cm</text>
+  <text x="182.00" y="248.00" font-size="5.5" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">SBALZO ANT. = 140 cm</text>
+  <text x="562.00" y="248.00" font-size="5.5" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">SBALZO POST. = 120 cm</text>
+  <text x="260.00" y="278.00" font-size="6.5" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">LUNGHEZZA TOTALE = 500 cm</text>
+  <text x="260.00" y="55.00" font-size="10" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">SCHEMATIZZAZIONE VETTURA - VISTA LATERALE</text>
+  <text x="260.00" y="305.00" font-size="5" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">Quote in cm. Raggio ruota R=35cm (275/35 ZR20). Silhouette Porsche 992 GT3 RS.</text>
+</svg>

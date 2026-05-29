@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Rampa Garage — Tavole DXF</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f0f0f0; }
+  h1 { color: #222; font-size: 18px; }
+  .tavola { background: #fff; border: 1px solid #ccc; margin: 20px 0; padding: 10px; box-shadow: 2px 2px 6px rgba(0,0,0,.15); }
+  .tavola h2 { font-size: 14px; color: #444; margin: 0 0 8px; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  .tavola img, .tavola object { max-width: 100%; display: block; }
+  .btn { display: inline-block; margin: 4px; padding: 6px 14px; background: #2244bb; color: #fff;
+         border-radius: 4px; cursor: pointer; font-size: 13px; text-decoration: none; border: none; }
+  .btn:hover { background: #1133aa; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .btn { display: none; }
+    .tavola { border: none; box-shadow: none; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+<h1>Rampa Garage — Visualizzazione Tavole</h1>
+<p style="font-size:12px;color:#666">Per esportare in PDF: <b>Ctrl+P → Salva come PDF</b> (usa "Più impostazioni" → Scala = 100%, senza margini)</p>
+
+<div class="tavola" id="Schematizzazione_Vettura">
+  <h2>Schematizzazione Vettura</h2>
+  <img src="Schematizzazione_Vettura.svg" alt="Schematizzazione_Vettura" style="width:100%;height:auto"/>
+  <div style="margin-top:6px">
+    <a class="btn" href="Schematizzazione_Vettura.svg" download>↓ Scarica SVG</a>
+    <button class="btn" onclick="window.open('Schematizzazione_Vettura.svg')">Apri SVG</button>
+  </div>
+</div>
+
+<div class="tavola" id="Profilo_Rampa">
+  <h2>Profilo Rampa</h2>
+  <img src="Profilo_Rampa.svg" alt="Profilo_Rampa" style="width:100%;height:auto"/>
+  <div style="margin-top:6px">
+    <a class="btn" href="Profilo_Rampa.svg" download>↓ Scarica SVG</a>
+    <button class="btn" onclick="window.open('Profilo_Rampa.svg')">Apri SVG</button>
+  </div>
+</div>
+
+<div class="tavola" id="Sezione_Costruttiva">
+  <h2>Sezione Costruttiva</h2>
+  <img src="Sezione_Costruttiva.svg" alt="Sezione_Costruttiva" style="width:100%;height:auto"/>
+  <div style="margin-top:6px">
+    <a class="btn" href="Sezione_Costruttiva.svg" download>↓ Scarica SVG</a>
+    <button class="btn" onclick="window.open('Sezione_Costruttiva.svg')">Apri SVG</button>
+  </div>
+</div>
+</body>
+</html>
