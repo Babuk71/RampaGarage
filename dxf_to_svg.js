@@ -6,8 +6,8 @@ const path = require('path');
 
 const FILES = [
   'Schematizzazione_Vettura.dxf',
-  'Profilo_Rampa.dxf',
-  'Sezione_Costruttiva.dxf',
+  'Tavola_Profilo_Ottimo.dxf',
+  'Tavola_Profilo_Ottimo_Uscita.dxf',
 ];
 
 const DIR = __dirname;
@@ -16,6 +16,9 @@ const DIR = __dirname;
 const ACI = {
   1: '#cc0000', 2: '#997700', 3: '#007700', 4: '#006699',
   5: '#2244bb', 6: '#aa0099', 7: '#111111', 8: '#777777',
+  30: '#e8820c', // arancio (stato "a rischio")
+  90: '#119911', // verde acceso (stato "sicuro")
+  11: '#cc0000', 31: '#e8820c', 91: '#119911', // varianti TENUI (banda sweep), stesso colore
 };
 function aciColor(n) { return ACI[n] || '#333333'; }
 
@@ -116,7 +119,12 @@ function arcPath(cx, cy, r, startDeg, endDeg, tx, ty) {
 
 function entityToSvg(e, layers, tx, ty) {
   const layer = layers[e[8]] || { color: 7, linetype: 'CONTINUOUS' };
-  const col = aciColor(layer.color);
+  // per-entity color (group 62) overrides layer color when present
+  const eci = e[62] !== undefined ? parseInt(e[62], 10) : null;
+  const col = (eci !== null) ? aciColor(eci) : aciColor(layer.color);
+  // status opacity: pose CHIAVE (1/30/90) piene; banda sweep (11/31/91) tenui per leggibilita'
+  const OPA = { 1:'', 30:'', 90:'', 11:' stroke-opacity="0.30"', 31:' stroke-opacity="0.28"', 91:' stroke-opacity="0.18"' };
+  const opa = (eci !== null && OPA[eci] !== undefined) ? OPA[eci] : '';
   const dash = layer.linetype === 'DASHED' ? ' stroke-dasharray="8 4"' :
                layer.linetype === 'CENTER' ? ' stroke-dasharray="20 4 4 4"' : '';
   // stroke-width by layer category
@@ -127,7 +135,7 @@ function entityToSvg(e, layers, tx, ty) {
   if (e.type === 'LINE') {
     const x1 = tx(e[10]).toFixed(2), y1 = ty(e[20]).toFixed(2);
     const x2 = tx(e[11]).toFixed(2), y2 = ty(e[21]).toFixed(2);
-    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${sw}"${dash}/>`;
+    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${sw}"${dash}${opa}/>`;
   }
   if (e.type === 'ARC') {
     const d = arcPath(
@@ -139,13 +147,13 @@ function entityToSvg(e, layers, tx, ty) {
     return `<path d="${d}" fill="none" stroke="${col}" stroke-width="${sw}"${dash}/>`;
   }
   if (e.type === 'CIRCLE') {
-    return `<circle cx="${tx(e[10]).toFixed(2)}" cy="${ty(e[20]).toFixed(2)}" r="${parseFloat(e[40]).toFixed(2)}" fill="none" stroke="${col}" stroke-width="${sw}"${dash}/>`;
+    return `<circle cx="${tx(e[10]).toFixed(2)}" cy="${ty(e[20]).toFixed(2)}" r="${parseFloat(e[40]).toFixed(2)}" fill="none" stroke="${col}" stroke-width="${sw}"${dash}${opa}/>`;
   }
   if (e.type === 'TEXT') {
     const x = tx(e[10]).toFixed(2), y = ty(e[20]).toFixed(2);
     const h = parseFloat(e[40]) || 5;
     const rot = e[50] ? -parseFloat(e[50]) : 0; // negate: Y-flip reverses rotation
-    const fill = aciColor(layer.color === 7 ? 7 : layer.color);
+    const fill = col;
     const txt = (e[1] || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     const rotAttr = rot !== 0 ? ` transform="rotate(${rot.toFixed(1)},${x},${y})"` : '';
     // Flip text vertically (Y-flip makes text upside-down without this)
