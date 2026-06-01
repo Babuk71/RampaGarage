@@ -6,6 +6,7 @@ const path = require('path');
 
 const FILES = [
   'Schematizzazione_Vettura.dxf',
+  'Tavola_Profilo_Rampa.dxf',
   'Tavola_Profilo_Ottimo.dxf',
   'Tavola_Profilo_Ottimo_Uscita.dxf',
 ];
