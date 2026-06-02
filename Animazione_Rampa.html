@@ -268,8 +268,15 @@ function wire(cls, fn){ var bs=document.querySelectorAll(cls);
   bs.forEach(function(b){ b.onclick=function(){ bs.forEach(function(x){x.classList.remove('on');});
     b.classList.add('on'); fn(b); render(); }; }); }
 wire('.hbtn', function(b){ H_SEL=+b.dataset.h; });
-wire('.dbtn', function(b){ D_SEL=b.dataset.d; });
 wire('.mbtn', function(b){ M_SEL=b.dataset.m; });
+// direzione: cambiando senso, mantieni la STESSA posizione fisica (le mappe sono speculari -> POS->1000-POS)
+var db=document.querySelectorAll('.dbtn');
+db.forEach(function(b){ b.onclick=function(){
+  var nd=b.dataset.d;
+  if(nd!==D_SEL){ POS=1000-POS; document.getElementById('pos').value=POS; }
+  db.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+  D_SEL=nd; render();
+}; });
 window.addEventListener('resize', render);
 // stato iniziale da URL hash (#pos=520&h=8&dir=in&m=ver) — utile per inquadrare una posa
 (function(){ var hs=location.hash.slice(1); if(!hs) return; hs.split('&').forEach(function(kv){
