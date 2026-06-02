@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2990 830" width="2990" height="830" style="background:#fff">
+  <!-- Tavola_Profilo_Quote — generato da dxf_to_svg.js -->
+  <text x="70.00" y="50.00" font-size="18" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">RAMPA GARAGE - PROFILO COSTRUTTIVO - PICCHETTAZIONE QUOTE OGNI 50 cm</text>
+  <text x="70.00" y="74.00" font-size="9" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">Stesso profilo dell'animazione (OTTIMIZZATO: CREST R=950 + SAG R=3042, tratto retto 13 cm, picco 47%). Senza vettura.</text>
+  <text x="70.00" y="90.00" font-size="9" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">Quote di altezza riferite al PIANO GARAGE (0 cm in fondo) fino al PIANO STRADA (380 cm). Progressive orizzontali dall'innesto strada (0) al garage (1700).</text>
+  <line x1="70.00" y1="102.00" x2="2920.00" y2="102.00" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="270.00" y1="170.00" x2="720.00" y2="170.00" stroke="#007700" stroke-width="2"/>
+  <text x="290.00" y="160.00" font-size="11" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">STRADA  (q. 380)</text>
+  <line x1="2420.00" y1="550.00" x2="2870.00" y2="550.00" stroke="#007700" stroke-width="2"/>
+  <text x="2600.00" y="538.00" font-size="11" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">GARAGE  (q. 0)</text>
+  <path d="M 1121.49 259.01 A 950 950 0 0 0 720.00 170.00" fill="none" stroke="#007700" stroke-width="2"/>
+  <line x1="1121.49" y1="259.01" x2="1134.24" y2="264.95" stroke="#007700" stroke-width="2"/>
+  <path d="M 1134.24 264.95 A 3042.37 3042.37 0 0 0 2420.00 550.00" fill="none" stroke="#007700" stroke-width="2"/>
+  <circle cx="720.00" cy="170.00" r="4.00" fill="none" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="734.00" y="168.00" font-size="9" fill="#cc0000" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">quota MAX 380 cm (innesto strada)</text>
+  <circle cx="2420.00" cy="550.00" r="4.00" fill="none" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="1950.00" y="564.00" font-size="9" fill="#cc0000" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">quota MIN 0 cm (fondo garage)</text>
+  <line x1="620.00" y1="550.00" x2="2520.00" y2="550.00" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="720.00" y1="605.00" x2="2420.00" y2="605.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="420.00" y="618.00" font-size="9" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">QUOTA H (cm):</text>
+  <text x="420.00" y="698.00" font-size="9" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">PROGR. (cm):</text>
+  <line x1="720.00" y1="550.00" x2="720.00" y2="170.00" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="720.00" y1="605.00" x2="720.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="723.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,723.00,620.00)">380.0</text>
+  <text x="723.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,723.00,700.00)">0</text>
+  <line x1="770.00" y1="550.00" x2="770.00" y2="171.32" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="770.00" y1="605.00" x2="770.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="773.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,773.00,620.00)">378.7</text>
+  <text x="773.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,773.00,700.00)">50</text>
+  <line x1="820.00" y1="550.00" x2="820.00" y2="175.28" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="820.00" y1="605.00" x2="820.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="823.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,823.00,620.00)">374.7</text>
+  <text x="823.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,823.00,700.00)">100</text>
+  <line x1="870.00" y1="550.00" x2="870.00" y2="181.92" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="870.00" y1="605.00" x2="870.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="873.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,873.00,620.00)">368.1</text>
+  <text x="873.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,873.00,700.00)">150</text>
+  <line x1="920.00" y1="550.00" x2="920.00" y2="191.29" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="920.00" y1="605.00" x2="920.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="923.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,923.00,620.00)">358.7</text>
+  <text x="923.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,923.00,700.00)">200</text>
+  <line x1="970.00" y1="550.00" x2="970.00" y2="203.48" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="970.00" y1="605.00" x2="970.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="973.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,973.00,620.00)">346.5</text>
+  <text x="973.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,973.00,700.00)">250</text>
+  <line x1="1020.00" y1="550.00" x2="1020.00" y2="218.61" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1020.00" y1="605.00" x2="1020.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1023.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1023.00,620.00)">331.4</text>
+  <text x="1023.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1023.00,700.00)">300</text>
+  <line x1="1070.00" y1="550.00" x2="1070.00" y2="236.82" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1070.00" y1="605.00" x2="1070.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1073.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1073.00,620.00)">313.2</text>
+  <text x="1073.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1073.00,700.00)">350</text>
+  <line x1="1120.00" y1="550.00" x2="1120.00" y2="258.32" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1120.00" y1="605.00" x2="1120.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1123.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1123.00,620.00)">291.7</text>
+  <text x="1123.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1123.00,700.00)">400</text>
+  <line x1="1170.00" y1="550.00" x2="1170.00" y2="281.35" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1170.00" y1="605.00" x2="1170.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1173.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1173.00,620.00)">268.7</text>
+  <text x="1173.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1173.00,700.00)">450</text>
+  <line x1="1220.00" y1="550.00" x2="1220.00" y2="303.34" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1220.00" y1="605.00" x2="1220.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1223.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1223.00,620.00)">246.7</text>
+  <text x="1223.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1223.00,700.00)">500</text>
+  <line x1="1270.00" y1="550.00" x2="1270.00" y2="324.28" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1270.00" y1="605.00" x2="1270.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1273.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1273.00,620.00)">225.7</text>
+  <text x="1273.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1273.00,700.00)">550</text>
+  <line x1="1320.00" y1="550.00" x2="1320.00" y2="344.18" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1320.00" y1="605.00" x2="1320.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1323.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1323.00,620.00)">205.8</text>
+  <text x="1323.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1323.00,700.00)">600</text>
+  <line x1="1370.00" y1="550.00" x2="1370.00" y2="363.07" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1370.00" y1="605.00" x2="1370.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1373.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1373.00,620.00)">186.9</text>
+  <text x="1373.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1373.00,700.00)">650</text>
+  <line x1="1420.00" y1="550.00" x2="1420.00" y2="380.96" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1420.00" y1="605.00" x2="1420.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1423.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1423.00,620.00)">169.0</text>
+  <text x="1423.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1423.00,700.00)">700</text>
+  <line x1="1470.00" y1="550.00" x2="1470.00" y2="397.87" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1470.00" y1="605.00" x2="1470.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1473.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1473.00,620.00)">152.1</text>
+  <text x="1473.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1473.00,700.00)">750</text>
+  <line x1="1520.00" y1="550.00" x2="1520.00" y2="413.83" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1520.00" y1="605.00" x2="1520.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1523.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1523.00,620.00)">136.2</text>
+  <text x="1523.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1523.00,700.00)">800</text>
+  <line x1="1570.00" y1="550.00" x2="1570.00" y2="428.85" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1570.00" y1="605.00" x2="1570.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1573.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1573.00,620.00)">121.2</text>
+  <text x="1573.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1573.00,700.00)">850</text>
+  <line x1="1620.00" y1="550.00" x2="1620.00" y2="442.94" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1620.00" y1="605.00" x2="1620.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1623.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1623.00,620.00)">107.1</text>
+  <text x="1623.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1623.00,700.00)">900</text>
+  <line x1="1670.00" y1="550.00" x2="1670.00" y2="456.11" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1670.00" y1="605.00" x2="1670.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1673.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1673.00,620.00)">93.9</text>
+  <text x="1673.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1673.00,700.00)">950</text>
+  <line x1="1720.00" y1="550.00" x2="1720.00" y2="468.38" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1720.00" y1="605.00" x2="1720.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1723.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1723.00,620.00)">81.6</text>
+  <text x="1723.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1723.00,700.00)">1000</text>
+  <line x1="1770.00" y1="550.00" x2="1770.00" y2="479.75" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1770.00" y1="605.00" x2="1770.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1773.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1773.00,620.00)">70.2</text>
+  <text x="1773.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1773.00,700.00)">1050</text>
+  <line x1="1820.00" y1="550.00" x2="1820.00" y2="490.25" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1820.00" y1="605.00" x2="1820.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1823.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1823.00,620.00)">59.8</text>
+  <text x="1823.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1823.00,700.00)">1100</text>
+  <line x1="1870.00" y1="550.00" x2="1870.00" y2="499.87" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1870.00" y1="605.00" x2="1870.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1873.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1873.00,620.00)">50.1</text>
+  <text x="1873.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1873.00,700.00)">1150</text>
+  <line x1="1920.00" y1="550.00" x2="1920.00" y2="508.63" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1920.00" y1="605.00" x2="1920.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1923.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1923.00,620.00)">41.4</text>
+  <text x="1923.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1923.00,700.00)">1200</text>
+  <line x1="1970.00" y1="550.00" x2="1970.00" y2="516.54" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="1970.00" y1="605.00" x2="1970.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1973.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1973.00,620.00)">33.5</text>
+  <text x="1973.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,1973.00,700.00)">1250</text>
+  <line x1="2020.00" y1="550.00" x2="2020.00" y2="523.59" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2020.00" y1="605.00" x2="2020.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2023.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2023.00,620.00)">26.4</text>
+  <text x="2023.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2023.00,700.00)">1300</text>
+  <line x1="2070.00" y1="550.00" x2="2070.00" y2="529.80" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2070.00" y1="605.00" x2="2070.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2073.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2073.00,620.00)">20.2</text>
+  <text x="2073.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2073.00,700.00)">1350</text>
+  <line x1="2120.00" y1="550.00" x2="2120.00" y2="535.17" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2120.00" y1="605.00" x2="2120.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2123.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2123.00,620.00)">14.8</text>
+  <text x="2123.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2123.00,700.00)">1400</text>
+  <line x1="2170.00" y1="550.00" x2="2170.00" y2="539.71" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2170.00" y1="605.00" x2="2170.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2173.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2173.00,620.00)">10.3</text>
+  <text x="2173.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2173.00,700.00)">1450</text>
+  <line x1="2220.00" y1="550.00" x2="2220.00" y2="543.42" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2220.00" y1="605.00" x2="2220.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2223.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2223.00,620.00)">6.6</text>
+  <text x="2223.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2223.00,700.00)">1500</text>
+  <line x1="2270.00" y1="550.00" x2="2270.00" y2="546.30" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2270.00" y1="605.00" x2="2270.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2273.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2273.00,620.00)">3.7</text>
+  <text x="2273.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2273.00,700.00)">1550</text>
+  <line x1="2320.00" y1="550.00" x2="2320.00" y2="548.36" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2320.00" y1="605.00" x2="2320.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2323.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2323.00,620.00)">1.6</text>
+  <text x="2323.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2323.00,700.00)">1600</text>
+  <line x1="2370.00" y1="550.00" x2="2370.00" y2="549.59" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2370.00" y1="605.00" x2="2370.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2373.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2373.00,620.00)">0.4</text>
+  <text x="2373.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2373.00,700.00)">1650</text>
+  <line x1="2420.00" y1="550.00" x2="2420.00" y2="550.00" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2420.00" y1="605.00" x2="2420.00" y2="610.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="2423.00" y="620.00" font-size="8" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2423.00,620.00)">0.0</text>
+  <text x="2423.00" y="700.00" font-size="8" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,2423.00,700.00)">1700</text>
+  <line x1="290.00" y1="550.00" x2="290.00" y2="170.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="284.00" y1="556.00" x2="296.00" y2="544.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="284.00" y1="176.00" x2="296.00" y2="164.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="250.00" y="380.00" font-size="9" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge" transform="rotate(-90.0,250.00,380.00)">H = 380</text>
+  <line x1="290.00" y1="170.00" x2="720.00" y2="170.00" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="720.00" y1="140.00" x2="2420.00" y2="140.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="714.00" y1="146.00" x2="726.00" y2="134.00" stroke="#2244bb" stroke-width="0.8"/>
+  <line x1="2414.00" y1="146.00" x2="2426.00" y2="134.00" stroke="#2244bb" stroke-width="0.8"/>
+  <text x="1526.00" y="134.00" font-size="9" fill="#2244bb" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">L = 1700 cm</text>
+  <line x1="720.00" y1="170.00" x2="720.00" y2="140.00" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <line x1="2420.00" y1="550.00" x2="2420.00" y2="140.00" stroke="#777777" stroke-width="0.8" stroke-dasharray="8 4"/>
+  <text x="70.00" y="750.00" font-size="9" fill="#111111" font-family="Arial,sans-serif" dominant-baseline="text-after-edge">NB: progressive e quote su proiezione ORIZZONTALE; i raccordi sono archi di cerchio. Disegno preliminare, da verificare in sito.</text>
+</svg>
