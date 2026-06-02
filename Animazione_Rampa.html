@@ -30,14 +30,14 @@
 <body>
 <header>
   <h1>Rampa Garage — animazione del transito (profilo ottimizzato, picco 47%)</h1>
-  <p class="sub">La silhouette cambia colore in base alla clearance governante:
+  <p class="sub">La silhouette cambia colore in base alla clearance governante del <b>modello attivo</b>:
     <span class="leg" style="background:#119911"></span>sicuro (&ge;1 cm)
     <span class="leg" style="background:#e8820c"></span>a rischio (0–1 cm)
     <span class="leg" style="background:#cc0000"></span>collisione (&lt;0).</p>
 </header>
-<div class="warn"><b>Modello multi-punto:</b> le altezze del sottoscocca (splitter, minigonna, terminali…) sono
-  <b>STIME non verificate</b> — il minimo multi-punto è <b>indicativo</b>. Il valore <b>verificato a punto singolo</b>
-  è mostrato a destra come riferimento.</div>
+<div class="warn"><b>Modello colore di default = VERIFICATO</b> (punto singolo, numeri validati: a h=8 in ingresso la
+  silhouette diventa <b>rossa</b> alla posa critica). Il modello <b>STIMA multi-punto</b> usa altezze sottoscocca
+  <b>non verificate</b> ed è solo indicativo (può non diventare rosso anche quando il verificato lo è).</div>
 
 <div class="bar">
   <div class="grp"><button id="play">► Play</button></div>
@@ -49,6 +49,9 @@
   <div class="grp"><b>Direzione</b>
     <button class="dbtn on" data-d="in">Ingresso (muso→garage)</button>
     <button class="dbtn" data-d="out">Uscita girata (muso→strada)</button></div>
+  <div class="grp"><b>Modello</b>
+    <button class="mbtn on" data-m="ver">Verificato (punto singolo)</button>
+    <button class="mbtn" data-m="sti">Stima (multi-punto)</button></div>
   <div class="grp"><button id="crit">Vai alla posa critica</button></div>
 </div>
 
@@ -56,17 +59,17 @@
 
 <div class="read">
   <div class="card">
-    <h3>Clearance minima (multi-punto · stima)</h3>
+    <h3 id="minh">Clearance — modello attivo</h3>
     <div class="big" id="minv">—</div>
     <div id="ming" class="mut">—</div>
   </div>
   <div class="card">
-    <h3>Riferimento verificato (punto singolo)</h3>
-    <div class="big" id="refv">—</div>
-    <div class="mut" id="refg">paraurti/sbalzo lungo contro il SAG</div>
+    <h3 id="alth">Altro modello (stessa posa)</h3>
+    <div class="big" id="altv">—</div>
+    <div id="altg" class="mut">—</div>
   </div>
   <div class="card">
-    <h3>Stato</h3>
+    <h3>Stato (modello attivo)</h3>
     <div class="big" id="state">—</div>
     <div class="mut" id="posinfo">—</div>
   </div>
@@ -75,7 +78,6 @@
 <script>
 var SIL = [[-5,35,5,35],[0,30,0,40],[235,35,245,35],[240,30,240,40],[-140,8,-34.7,8],[34.7,8,205.3,8],[274.7,8,360,8],[-140,8,-140,35],[-140,35,-128,52],[-128,52,-112,62],[-112,62,-75,72],[-75,72,-25,80],[-25,80,5,83],[5,83,38,128],[38,128,165,128],[165,128,210,103],[210,103,270,101],[270,101,320,78],[320,78,360,52],[360,52,360,8],[257,101,257,148],[278,101,278,148],[233,150,303,150],[233,146,303,146],[233,146,233,150],[303,146,303,150]];
 var UNDER = [{"sx":-140,"h":14,"name":"punta muso"},{"sx":-122,"h":8,"name":"splitter ant."},{"sx":-40,"h":11,"name":"fondo piatto ant."},{"sx":60,"h":10,"name":"minigonna"},{"sx":120,"h":12,"name":"ventre (breakover)"},{"sx":200,"h":11,"name":"fondo piatto post."},{"sx":330,"h":10,"name":"diffusore/terminali"},{"sx":360,"h":16,"name":"punta coda"}];
-var REF = {"in":{"8":-0.8,"9":0.24,"10":1.23},"out":{"8":-0.84,"9":0.24,"10":1.24}};
 
 // ---------- geometria profilo ottimizzato ----------
 var DEG=Math.PI/180, H=380, Ltot=1700, wb=240, Lant=140, Lpost=120, rw=35;
@@ -111,16 +113,28 @@ function valid(p){ return Math.abs(p.dist-wb)<0.5; }
 // mappa sx silhouette -> body-x del modello, secondo l'orientamento
 function bodyx(sx,dir){ return dir==='in' ? (wb-sx) : sx; }
 
-// clearance multi-punto di una posa: ritorna {min, name, P}
-function evalPose(xr,h,dir){
+// ---------- VERIFICATO (punto singolo): paraurti/sbalzi all'estremita' + ventre ----------
+function evalSingle(xr,h,dir){
+  var p=pose(xr,+1,h); if(!valid(p)) return null;
+  var ends = (dir==='in')
+    ? [{bx:wb+Lant, name:'paraurti anteriore (muso, sbalzo 140)'}, {bx:-Lpost, name:'paraurti posteriore (coda, 120)'}]
+    : [{bx:-Lant,    name:'muso (sbalzo 140)'},                    {bx:wb+Lpost, name:'coda (sbalzo 120)'}];
+  var mn=1e9, nm='', P=null;
+  for(var i=0;i<ends.length;i++){ var Q=p.W(ends[i].bx, h); var cl=Q.y-ys(Q.x); if(cl<mn){mn=cl;nm=ends[i].name;P=Q;} }
+  for(var b=0;b<=wb;b+=4){ var Qb=p.W(b,h); var clb=Qb.y-ys(Qb.x); if(clb<mn){mn=clb;nm='ventre';P=Qb;} }
+  return {p:p, min:mn, name:nm, P:P, multi:false};
+}
+// ---------- STIMA (multi-punto): punti bassi del sottoscocca (altezze STIMATE) ----------
+function evalMulti(xr,h,dir){
   var p=pose(xr,+1,h); if(!valid(p)) return null;
   var lift=h-8, mn=1e9, nm='', P=null;
   for(var i=0;i<UNDER.length;i++){
     var u=UNDER[i]; var Q=p.W(bodyx(u.sx,dir), u.h+lift); var cl=Q.y-ys(Q.x);
     if(cl<mn){ mn=cl; nm=u.name; P=Q; }
   }
-  return {p:p, min:mn, name:nm, P:P};
+  return {p:p, min:mn, name:nm, P:P, multi:true};
 }
+function evalBy(model,xr,h,dir){ return model==='ver' ? evalSingle(xr,h,dir) : evalMulti(xr,h,dir); }
 function statusCol(cm){ return cm<0?'#cc0000':(cm<1?'#e8820c':'#119911'); }
 function statusTxt(cm){ return cm<0?'COLLISIONE':(cm<1?'a rischio':'sicuro'); }
 
@@ -140,7 +154,7 @@ function MX(x){ return (x-wXmin)*scale; }
 function MY(y){ return (wYmax-y)*scale; }
 
 // ---------- range di transito (xr = contatto ruota posteriore) ----------
-var xrA=-200, xrB=1950;             // A=alto/strada, B=basso/garage
+var xrA=-200, xrB=1950;
 function xrOf(tt,dir){ return dir==='in' ? (xrA+tt*(xrB-xrA)) : (xrB+tt*(xrA-xrB)); }
 
 // ---------- disegno ----------
@@ -153,9 +167,9 @@ function drawProfile(){
   ctx.fillText('STRADA', MX(-360), MY(H)-8);
   ctx.fillText('GARAGE', MX(1880), MY(0)-8);
 }
-function drawCar(st,h,dir){
+function drawCar(st,h,dir,showUnder){
   var lift=h-8, p=st.p;
-  // silhouette
+  // silhouette colorata dallo stato del modello attivo
   ctx.lineWidth=2; ctx.strokeStyle=statusCol(st.min); ctx.beginPath();
   for(var i=0;i<SIL.length;i++){ var g=SIL[i];
     var a=p.W(bodyx(g[0],dir), g[1]+lift), b=p.W(bodyx(g[2],dir), g[3]+lift);
@@ -167,58 +181,61 @@ function drawCar(st,h,dir){
   var wF=p.W(wb,rw), wR=p.W(0,rw);
   ctx.beginPath(); ctx.arc(MX(wF.x),MY(wF.y), rw*scale, 0, 7); ctx.stroke();
   ctx.beginPath(); ctx.arc(MX(wR.x),MY(wR.y), rw*scale, 0, 7); ctx.stroke();
-  // punti sottoscocca
-  for(var k=0;k<UNDER.length;k++){ var u=UNDER[k];
-    var Q=p.W(bodyx(u.sx,dir), u.h+lift); var cl=Q.y-ys(Q.x);
-    ctx.fillStyle=statusCol(cl);
-    ctx.beginPath(); ctx.arc(MX(Q.x),MY(Q.y), 3, 0, 7); ctx.fill();
+  // punti sottoscocca (mostrati solo in modalita' stima multi-punto)
+  if(showUnder){
+    for(var k=0;k<UNDER.length;k++){ var u=UNDER[k];
+      var Q=p.W(bodyx(u.sx,dir), u.h+lift); var cl=Q.y-ys(Q.x);
+      ctx.fillStyle=statusCol(cl);
+      ctx.beginPath(); ctx.arc(MX(Q.x),MY(Q.y), 3, 0, 7); ctx.fill();
+    }
   }
   // punto governante: anello + linea a terra + etichetta
-  var P=st.P; var col=statusCol(st.min);
+  var P=st.P, col=statusCol(st.min);
   ctx.strokeStyle=col; ctx.lineWidth=2;
   ctx.beginPath(); ctx.arc(MX(P.x),MY(P.y), 6, 0, 7); ctx.stroke();
   ctx.setLineDash([4,3]); ctx.beginPath();
   ctx.moveTo(MX(P.x),MY(P.y)); ctx.lineTo(MX(P.x),MY(ys(P.x))); ctx.stroke();
   ctx.setLineDash([]);
   ctx.fillStyle=col; ctx.font='bold 13px Arial';
-  var lab=(st.min>=0?'+':'')+st.min.toFixed(2)+' cm';
-  ctx.fillText(lab, MX(P.x)+8, MY(P.y)-6);
+  ctx.fillText((st.min>=0?'+':'')+st.min.toFixed(2)+' cm', MX(P.x)+8, MY(P.y)-6);
 }
 
 // ---------- stato UI ----------
-var H_SEL=8, D_SEL='in', POS=0, playing=false;
+var H_SEL=8, D_SEL='in', M_SEL='ver', POS=0, playing=false;
+function setBig(id,val){ var e=document.getElementById(id);
+  e.textContent=(val>=0?'+':'')+val.toFixed(2)+' cm'; e.style.color=statusCol(val); }
 function render(){
   fit();
   ctx.clearRect(0,0,cv.width,cv.height);
   drawProfile();
   var xr=xrOf(POS/1000, D_SEL);
-  var st=evalPose(xr,H_SEL,D_SEL);
+  var st=evalBy(M_SEL,xr,H_SEL,D_SEL);
+  var other=evalBy(M_SEL==='ver'?'sti':'ver',xr,H_SEL,D_SEL);
+  var verName = M_SEL==='ver';
+  document.getElementById('minh').textContent = 'Clearance — '+(verName?'VERIFICATO (punto singolo)':'STIMA (multi-punto)');
+  document.getElementById('alth').textContent = 'Stessa posa — '+(verName?'STIMA (multi-punto)':'VERIFICATO (punto singolo)');
   if(st){
-    drawCar(st,H_SEL,D_SEL);
-    document.getElementById('minv').textContent=(st.min>=0?'+':'')+st.min.toFixed(2)+' cm';
-    document.getElementById('minv').style.color=statusCol(st.min);
+    drawCar(st,H_SEL,D_SEL, M_SEL==='sti');
+    setBig('minv', st.min);
     document.getElementById('ming').textContent='governa: '+st.name;
     document.getElementById('state').textContent=statusTxt(st.min);
     document.getElementById('state').style.color=statusCol(st.min);
   }
-  var rv=REF[D_SEL][H_SEL];
-  document.getElementById('refv').textContent=(rv>=0?'+':'')+rv.toFixed(2)+' cm';
-  document.getElementById('refv').style.color=statusCol(rv);
-  document.getElementById('refg').textContent = D_SEL==='in'
-    ? 'paraurti anteriore (sbalzo 140) contro il SAG' : 'muso (sbalzo 140) contro il SAG';
+  if(other){ setBig('altv', other.min);
+    document.getElementById('altg').textContent='governa: '+other.name + (other.multi?'  (stima non verificata)':''); }
   var pct=(POS/10).toFixed(0);
   document.getElementById('posinfo').textContent='transito '+pct+'%  ·  luce h='+H_SEL+' cm  ·  '+
     (D_SEL==='in'?'ingresso':'uscita girata');
 }
 function loop(){
-  if(playing){ POS+= (D_SEL==='in'?2.2:2.2); if(POS>=1000){POS=1000; playing=false; document.getElementById('play').textContent='► Play';}
+  if(playing){ POS+=2.2; if(POS>=1000){POS=1000; playing=false; document.getElementById('play').textContent='► Play';}
     document.getElementById('pos').value=POS; render(); }
   requestAnimationFrame(loop);
 }
-// posa critica: scan del minimo governante
+// posa critica: scan del minimo del modello ATTIVO
 function gotoCrit(){
   var best=1e9, bt=0;
-  for(var i=0;i<=1000;i++){ var xr=xrOf(i/1000,D_SEL); var st=evalPose(xr,H_SEL,D_SEL);
+  for(var i=0;i<=1000;i++){ var xr=xrOf(i/1000,D_SEL); var st=evalBy(M_SEL,xr,H_SEL,D_SEL);
     if(st && st.min<best){ best=st.min; bt=i; } }
   POS=bt; document.getElementById('pos').value=POS; playing=false;
   document.getElementById('play').textContent='► Play'; render();
@@ -232,16 +249,20 @@ document.getElementById('play').onclick=function(){
 document.getElementById('pos').oninput=function(){ POS=+this.value; playing=false;
   document.getElementById('play').textContent='► Play'; render(); };
 document.getElementById('crit').onclick=gotoCrit;
-var hb=document.querySelectorAll('.hbtn'); hb.forEach(function(b){ b.onclick=function(){
-  hb.forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); H_SEL=+b.dataset.h; render(); }; });
-var db=document.querySelectorAll('.dbtn'); db.forEach(function(b){ b.onclick=function(){
-  db.forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); D_SEL=b.dataset.d; render(); }; });
+function wire(cls, fn){ var bs=document.querySelectorAll(cls);
+  bs.forEach(function(b){ b.onclick=function(){ bs.forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on'); fn(b); render(); }; }); }
+wire('.hbtn', function(b){ H_SEL=+b.dataset.h; });
+wire('.dbtn', function(b){ D_SEL=b.dataset.d; });
+wire('.mbtn', function(b){ M_SEL=b.dataset.m; });
 window.addEventListener('resize', render);
-// stato iniziale da URL hash (#pos=520&h=8&dir=in) — utile per inquadrare una posa
+// stato iniziale da URL hash (#pos=520&h=8&dir=in&m=ver) — utile per inquadrare una posa
 (function(){ var hs=location.hash.slice(1); if(!hs) return; hs.split('&').forEach(function(kv){
-  var p=kv.split('='); if(p[0]==='pos'){POS=+p[1]; document.getElementById('pos').value=POS;}
-  if(p[0]==='h'){H_SEL=+p[1]; document.querySelectorAll('.hbtn').forEach(function(b){b.classList.toggle('on', +b.dataset.h===H_SEL);});}
-  if(p[0]==='dir'){D_SEL=p[1]; document.querySelectorAll('.dbtn').forEach(function(b){b.classList.toggle('on', b.dataset.d===D_SEL);});}
+  var p=kv.split('='); var k=p[0], v=p[1];
+  if(k==='pos'){POS=+v; document.getElementById('pos').value=POS;}
+  if(k==='h'){H_SEL=+v; document.querySelectorAll('.hbtn').forEach(function(b){b.classList.toggle('on', +b.dataset.h===H_SEL);});}
+  if(k==='dir'){D_SEL=v; document.querySelectorAll('.dbtn').forEach(function(b){b.classList.toggle('on', b.dataset.d===D_SEL);});}
+  if(k==='m'){M_SEL=v; document.querySelectorAll('.mbtn').forEach(function(b){b.classList.toggle('on', b.dataset.m===M_SEL);});}
 }); })();
 render(); loop();
 </script>
