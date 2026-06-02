@@ -207,6 +207,38 @@ function drawProfile(){
   ctx.fillText('STRADA', MX(-360), MY(H)-8);
   ctx.fillText('GARAGE', MX(1880), MY(0)-8);
 }
+// quote TECNICHE statiche (non variano nell'animazione): quota max/min e lunghezza 0-1700
+function drawDims(){
+  ctx.save();
+  var DC='#2a5db0'; ctx.strokeStyle=DC; ctx.fillStyle=DC; ctx.lineWidth=1; ctx.font='12px Arial';
+  function tick(x,y){ ctx.beginPath(); ctx.moveTo(MX(x)-4,MY(y)-4); ctx.lineTo(MX(x)+4,MY(y)+4); ctx.stroke(); }
+  // datum orizzontale a quota 0 (riferimento) sotto tutta la rampa
+  ctx.setLineDash([5,4]);
+  ctx.beginPath(); ctx.moveTo(MX(-450),MY(0)); ctx.lineTo(MX(1700),MY(0)); ctx.stroke();
+  // witness verticali agli estremi della lunghezza
+  ctx.beginPath(); ctx.moveTo(MX(0),MY(0)); ctx.lineTo(MX(0),MY(-52)); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(MX(1700),MY(0)); ctx.lineTo(MX(1700),MY(-52)); ctx.stroke();
+  ctx.setLineDash([]);
+  // linea di quota LUNGHEZZA (orizzontale) a y=-42
+  ctx.beginPath(); ctx.moveTo(MX(0),MY(-42)); ctx.lineTo(MX(1700),MY(-42)); ctx.stroke();
+  tick(0,-42); tick(1700,-42);
+  ctx.textAlign='center'; ctx.fillText('L = 1700 cm', MX(850), MY(-42)-5);
+  ctx.fillText('0', MX(0), MY(-42)+16); ctx.fillText('1700', MX(1700), MY(-42)+16);
+  // quota VERTICALE (dislivello) a sinistra, x=-430
+  ctx.beginPath(); ctx.moveTo(MX(-430),MY(0)); ctx.lineTo(MX(-430),MY(380)); ctx.stroke();
+  tick(-430,0); tick(-430,380);
+  ctx.setLineDash([5,4]);
+  ctx.beginPath(); ctx.moveTo(MX(-430),MY(380)); ctx.lineTo(MX(0),MY(380)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.save(); ctx.translate(MX(-430)-7, MY(190)); ctx.rotate(-Math.PI/2);
+  ctx.textAlign='center'; ctx.fillText('H = 380 cm', 0, 0); ctx.restore();
+  // punti di quota MAX e MIN, marcati come riferimenti tecnici
+  ctx.beginPath(); ctx.arc(MX(0),MY(380),3.5,0,7); ctx.fill();
+  ctx.textAlign='left'; ctx.fillText('quota MAX  +380 cm  (inizio discesa)', MX(0)+9, MY(380)-7);
+  ctx.beginPath(); ctx.arc(MX(1700),MY(0),3.5,0,7); ctx.fill();
+  ctx.textAlign='center'; ctx.fillText('quota MIN  0 cm  (fondo rampa)', MX(1700), MY(0)+34);
+  ctx.restore();
+}
 function drawCar(st,h,dir,showUnder){
   var lift=h-8, p=st.p;
   // silhouette colorata dallo stato del modello attivo
@@ -248,6 +280,7 @@ function render(){
   fit();
   ctx.clearRect(0,0,cv.width,cv.height);
   drawProfile();
+  drawDims();
   var xr=xrOf(POS/1000, D_SEL);
   var st=evalBy(M_SEL,xr,H_SEL,D_SEL);
   var other=evalBy(M_SEL==='ver'?'sti':'ver',xr,H_SEL,D_SEL);
