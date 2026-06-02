@@ -47,7 +47,7 @@ const PAGE = `<!DOCTYPE html>
   button.on{background:#2244bb;color:#fff;border-color:#2244bb}
   input[type=range]{width:340px;vertical-align:middle}
   #wrap{padding:10px 18px}
-  canvas{width:100%;height:auto;background:#fff;border:1px solid #ddd;border-radius:6px;display:block}
+  canvas{width:100%;height:auto;background:#fff;border:1px solid #ddd;border-radius:6px;display:block;touch-action:none;cursor:grab}
   .read{display:flex;flex-wrap:wrap;gap:18px;padding:6px 18px 18px;font-size:13px}
   .card{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:10px 12px;min-width:230px}
   .card h3{margin:0 0 6px;font-size:12px;color:#555;text-transform:uppercase;letter-spacing:.4px}
@@ -82,6 +82,7 @@ const PAGE = `<!DOCTYPE html>
     <button class="mbtn on" data-m="ver">Verificato (punto singolo)</button>
     <button class="mbtn" data-m="sti">Stima (multi-punto)</button></div>
   <div class="grp"><button id="crit">Vai alla posa critica</button></div>
+  <div class="grp mut">↔ puoi anche trascinare la vettura sul disegno</div>
 </div>
 
 <div id="wrap"><canvas id="cv" width="1600" height="380"></canvas></div>
@@ -340,6 +341,33 @@ db.forEach(function(b){ b.onclick=function(){
   D_SEL=nd; render();
 }; });
 window.addEventListener('resize', render);
+
+// ---------- DRAG & DROP della vettura lungo la rampa ----------
+function evtWorldX(e){ var r=cv.getBoundingClientRect(); return wXmin + (e.clientX-r.left)/scale; }
+function xrToPos(xr,dir){ var d=xrB-xrA; var f=(dir==='in')?(xr-xrA)/d:(xrB-xr)/d; return Math.max(0,Math.min(1000,f*1000)); }
+function carFoot(xr){ return [xr - Lpost - 50, xr + wb + Lant + 60]; }   // ingombro orizzontale approx
+var dragging=false, grabOffset=0;
+cv.addEventListener('pointerdown', function(e){
+  var wx=evtWorldX(e), xrNow=xrOf(POS/1000,D_SEL), f=carFoot(xrNow);
+  if(wx<f[0] || wx>f[1]) return;                 // afferra solo se sei sulla vettura
+  dragging=true; grabOffset=wx-xrNow;
+  playing=false; document.getElementById('play').textContent='► Play';
+  cv.style.cursor='grabbing'; try{cv.setPointerCapture(e.pointerId);}catch(_){}
+  e.preventDefault();
+});
+cv.addEventListener('pointermove', function(e){
+  if(dragging){
+    var xr=Math.max(xrA, Math.min(xrB, evtWorldX(e)-grabOffset));
+    POS=xrToPos(xr,D_SEL); document.getElementById('pos').value=POS; render(); e.preventDefault();
+  } else {
+    var wx=evtWorldX(e), f=carFoot(xrOf(POS/1000,D_SEL));
+    cv.style.cursor=(wx>=f[0]&&wx<=f[1])?'grab':'default';
+  }
+});
+function endDrag(e){ if(dragging){ dragging=false; cv.style.cursor='grab'; try{cv.releasePointerCapture(e.pointerId);}catch(_){}} }
+cv.addEventListener('pointerup', endDrag);
+cv.addEventListener('pointercancel', endDrag);
+
 // stato iniziale da URL hash (#pos=520&h=8&dir=in&m=ver) — utile per inquadrare una posa
 (function(){ var hs=location.hash.slice(1); if(!hs) return; hs.split('&').forEach(function(kv){
   var p=kv.split('='); var k=p[0], v=p[1];
