@@ -73,6 +73,11 @@
     <div class="big" id="state">—</div>
     <div class="mut" id="posinfo">—</div>
   </div>
+  <div class="card" title="Soglie: verde mu_req <= 0.275 (margine x2 su CLS spazzolato bagnato); arancio 0.275-0.55 (margine ridotto); rosso > 0.55 (oltre l'aderenza disponibile da bagnato).">
+    <h3>Inclinazione vettura (trazione)</h3>
+    <div class="big" id="incv">—</div>
+    <div class="mut" id="incg">—</div>
+  </div>
 </div>
 
 <script>
@@ -137,6 +142,12 @@ function evalMulti(xr,h,dir){
 function evalBy(model,xr,h,dir){ return model==='ver' ? evalSingle(xr,h,dir) : evalMulti(xr,h,dir); }
 function statusCol(cm){ return cm<0?'#cc0000':(cm<1?'#e8820c':'#119911'); }
 function statusTxt(cm){ return cm<0?'COLLISIONE':(cm<1?'a rischio':'sicuro'); }
+// inclinazione vettura = pendenza della retta fra i due appoggi ruota
+function gradePct(p){ var dx=Math.abs(p.Cf.x-p.Cr.x)||1; return Math.abs(p.Cf.y-p.Cr.y)/dx*100; }
+function gradeDeg(p){ return Math.atan2(Math.abs(p.Cf.y-p.Cr.y), Math.abs(p.Cf.x-p.Cr.x))/DEG; }
+// trazione: mu_req = tan = pendenza/100; mu disponibile bagnato ~0.55 (CLS spazzolato), margine x2
+function tracCol(g){ var mu=g/100; return mu>0.55?'#cc0000':(mu>0.275?'#e8820c':'#119911'); }
+function tracTxt(g){ var mu=g/100; return mu>0.55?'oltre aderenza (bagnato)':(mu>0.275?'margine ridotto':'sicuro'); }
 
 // ---------- mappatura mondo -> canvas ----------
 var cv=document.getElementById('cv'), ctx=cv.getContext('2d');
@@ -220,6 +231,10 @@ function render(){
     document.getElementById('ming').textContent='governa: '+st.name;
     document.getElementById('state').textContent=statusTxt(st.min);
     document.getElementById('state').style.color=statusCol(st.min);
+    // inclinazione vettura / trazione (indipendente dal modello di contatto)
+    var g=gradePct(st.p);
+    var iv=document.getElementById('incv'); iv.textContent=g.toFixed(1)+' %'; iv.style.color=tracCol(g);
+    document.getElementById('incg').textContent='≈ '+gradeDeg(st.p).toFixed(1)+'°  ·  μ richiesto '+(g/100).toFixed(2)+'  ·  '+tracTxt(g);
   }
   if(other){ setBig('altv', other.min);
     document.getElementById('altg').textContent='governa: '+other.name + (other.multi?'  (stima non verificata)':''); }
