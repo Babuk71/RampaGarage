@@ -35,7 +35,7 @@ let E='';
 // ====================== TESTATA ======================
 E += T('TESTO', -650, 500, 18, 'RAMPA GARAGE - PROFILO COSTRUTTIVO - PICCHETTAZIONE QUOTE OGNI 50 cm');
 E += T('TESTO', -650, 476, 9, `Stesso profilo dell'animazione (OTTIMIZZATO: CREST R=${Rc} + SAG R=${Rs.toFixed(0)}, tratto retto ${Lh.toFixed(0)} cm, picco ${(t*100).toFixed(0)}%). Senza vettura.`);
-E += T('TESTO', -650, 460, 9, 'Quote di altezza riferite al PIANO GARAGE (0 cm in fondo) fino al PIANO STRADA (380 cm). Progressive orizzontali dall\'innesto strada (0) al garage (1700).');
+E += T('TESTO', -650, 460, 9, 'Altezze come LINEE DI QUOTA verticali (freccette agli estremi: apice su quota 0 e sul profilo) riferite al PIANO GARAGE (0) fino alla STRADA (380). Progressive orizzontali 0 (strada) -> 1700 (garage).');
 E += L('REF', -650, 448, 2200, 448, 8);
 
 // ====================== PIANI STRADA / GARAGE ======================
@@ -51,22 +51,27 @@ E += ARC('RAMPA', sagC.x, sagC.y, Rs, aSag0, aSag1);
 E += C('CRITICO', 0,H,4,1);    E += T('CRITICO', 14,H+2,9,'quota MAX 380 cm (innesto strada)',1);
 E += C('CRITICO', Ltot,0,4,1); E += T('CRITICO', Ltot-470,-14,9,'quota MIN 0 cm (fondo garage)',1);
 
-// ====================== DATUM + GRIGLIA + PICCHETTI OGNI 50 cm ======================
+// ====================== DATUM + QUOTE VERTICALI (con freccette) OGNI 50 cm ======================
 E += L('REF', -100, 0, 1800, 0, 8);   // datum quota 0
-const yProg = -150, yQuota = -70;     // righe del cartiglio quote
+const yProg = -90;                    // riga progressive (cartiglio in basso)
 E += L('QUOTE', 0, -55, Ltot, -55, 5);// asse progressive
-
-E += T('TESTO', -300, yQuota+2, 9, 'QUOTA H (cm):', 5);
 E += T('TESTO', -300, yProg+2, 9, 'PROGR. (cm):', 5);
 
+// linea di quota verticale con freccette alle due estremita' (apice sul datum e sul profilo)
+function vdim(x,h){
+  let o = L('QUOTE', x,0, x,h, 5);
+  const al=Math.min(8, Math.max(1, h*0.32)), aw=al*0.42;
+  o += L('QUOTE', x,0, x-aw,al,  5) + L('QUOTE', x,0, x+aw,al,  5);   // freccia in basso (apice su quota 0)
+  o += L('QUOTE', x,h, x-aw,h-al,5) + L('QUOTE', x,h, x+aw,h-al,5);   // freccia in alto (apice sul profilo)
+  return o;
+}
 for (let x=0; x<=Ltot; x+=50){
   const h = ys(x);
-  // verticale di griglia dal datum al profilo + tacca
-  E += L('REF', x, 0, x, h, 8);
-  E += L('QUOTE', x, -55, x, -60, 5);
-  // quota altezza (ruotata 90) e progressiva (ruotata 90)
-  E += T('QUOTE', x+3, yQuota, 8, h.toFixed(1), 5, 90);
-  E += T('TESTO', x+3, yProg, 8, String(x), 7, 90);
+  if (h>0.3) E += vdim(x,h);                            // linea di quota con freccette
+  const ty = Math.max(h/2 - 12, 2);                     // misura ~centrata nello spazio della quota
+  E += T('QUOTE', x+5, ty, 8, h.toFixed(1), 5, 90);
+  E += L('QUOTE', x, -55, x, -60, 5);                   // tacca progressive
+  E += T('TESTO', x+3, yProg, 8, String(x), 7, 90);     // progressiva (cm)
 }
 
 // ====================== QUOTE D'INSIEME ======================
@@ -88,7 +93,7 @@ const tpl = fs.readFileSync(__dirname + '/_template_tavole.dxf','utf8');
 let head = tpl.slice(0, tpl.indexOf('ENTITIES')) + 'ENTITIES\n';
 head = head.replace(/ 10\n-600.0/g, ' 10\n-700.0');
 head = head.replace(/ 10\n2400.0/g, ' 10\n2250.0');
-head = head.replace(/ 20\n-200.0/g, ' 20\n-260.0');
+head = head.replace(/ 20\n-200.0/g, ' 20\n-200.0');
 head = head.replace(/ 20\n600.0/g,  ' 20\n530.0');
 fs.writeFileSync(__dirname + '/Tavola_Profilo_Quote.dxf', head + E + '  0\nENDSEC\n  0\nEOF\n', 'utf8');
 
