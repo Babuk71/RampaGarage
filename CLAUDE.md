@@ -295,8 +295,15 @@ Senza una di queste leve, la rampa non è geometricamente compatibile con la vet
 | genera_tavola_ottimo.js | Generatore di Tavola_Profilo_Ottimo.dxf (ingresso) |
 | Tavola_Profilo_Ottimo_Uscita.dxf / .svg | USCITA girata (muso→strada): stesso confronto a 3 luci; governa lo sbalzo lungo (muso) |
 | genera_tavola_uscita_ottimo.js | Generatore di Tavola_Profilo_Ottimo_Uscita.dxf (uscita, vettura girata) |
-| _template_tavole.dxf | Header/layer DXF condiviso usato dai due generatori `_ottimo` (estratto da Profilo_Rampa.dxf) |
-| dxf_to_svg.js | Convertitore DXF→SVG (+ indice Tavole_Rampa.html); colori per-entità verde/arancio/rosso |
+| Tavola_Profilo_Rampa.dxf / .svg | PRELIMINARE per fase realizzativa: solo profilo ottimizzato (CREST R=950 + SAG R=3042, retto ~13 cm, picco 47%) quotato, SENZA vettura, con le criticità di cantiere (transito −0.80 governante, soglia, drenaggio, aderenza, antighiaccio) |
+| genera_tavola_profilo.js | Generatore di Tavola_Profilo_Rampa.dxf |
+| Tavola_Profilo_Quote.dxf / .svg | COSTRUTTIVA: stesso profilo, senza vettura, con picchettazione quote ogni 50 cm di progressiva orizzontale (q. 380 innesto strada → q. 0 fondo garage), griglia, quote MAX/MIN, H e L |
+| genera_tavola_quote.js | Generatore di Tavola_Profilo_Quote.dxf (TEXT con rotazione gruppo 50) |
+| Animazione_Rampa.html | Animazione interattiva (canvas): transito sul profilo ottimizzato; silhouette colorata per clearance governante. Due modelli (VERIFICATO punto singolo = colore di default / STIMA multi-punto, altezze sottoscocca non verificate), 3 luci, direzione ingresso/uscita girata (mantiene la posizione fisica), box clearance + stato + inclinazione/trazione passo-passo, quote tecniche statiche |
+| genera_animazione.js | Generatore di Animazione_Rampa.html (embedda silhouette + punti sottoscocca STIMATI; modello VERIFICATO riproduce i numeri validati −0.80/−0.84 ecc.) |
+| _foto.jpg | Foto laterale di riferimento (992 GT3 RS): stima visiva luce/estremità ↔ punti più bassi |
+| _template_tavole.dxf | Header/layer DXF condiviso usato dai generatori `_ottimo`, `genera_tavola_profilo.js` e `genera_tavola_quote.js` (estratto da Profilo_Rampa.dxf) |
+| dxf_to_svg.js | Convertitore DXF→SVG (+ indice Tavole_Rampa.html); colori per-entità verde/arancio/rosso; gestisce la rotazione TEXT (gruppo 50) |
 | Relazione_Profilo_Ottimo.md | Relazione: profilo estremo, sensibilità in h, uscita girata, problemi di pendenza/aderenza/usura/altezza reale |
 | CLAUDE.md | Questo documento |
 
