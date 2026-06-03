@@ -277,12 +277,12 @@ Senza una di queste leve, la rampa non è geometricamente compatibile con la vet
 
 ## File prodotti
 
-> **Organizzazione cartella (31/05/2026).** La cartella principale contiene **solo i file
-> attuali e corretti** (silhouette vettura + tavole che verificano le 3 luci in entrata e
-> uscita, con i relativi generatori). Tutto il materiale **superato** è stato spostato in
-> `OLD/` (profilo originale R=1500 con la clearance +1.5cm non conservativa, verifica della
-> rampa adottata, sezione costruttiva, script di ricerca del SAG). I file in `OLD/` restano
-> consultabili come storico ma **non** sono più mantenuti.
+> **Organizzazione cartella (31/05/2026; pulizia 02/06/2026).** La cartella contiene **solo i file
+> attuali e corretti** (silhouette vettura, tavole che verificano le 3 luci in entrata e uscita,
+> tavola profilo preliminare/costruttiva, animazione interattiva, con i relativi generatori).
+> Il materiale **superato** (profilo originale R=1500 con la clearance +1.5cm non conservativa,
+> verifica della rampa adottata, sezione costruttiva, script di ricerca del SAG) — prima archiviato
+> in `OLD/` — è stato **rimosso dal progetto** il 02/06/2026; resta **recuperabile dalla cronologia git**.
 
 ### Cartella principale — file attuali
 
@@ -307,16 +307,12 @@ Senza una di queste leve, la rampa non è geometricamente compatibile con la vet
 | Relazione_Profilo_Ottimo.md | Relazione: profilo estremo, sensibilità in h, uscita girata, problemi di pendenza/aderenza/usura/altezza reale |
 | CLAUDE.md | Questo documento |
 
-### Cartella OLD/ — materiale superato (non mantenuto)
-
-| File | Perché superato |
-|---|---|
-| Profilo_Rampa.dxf / .svg | Profilo originale R=1500 con clearance +1.5cm **non conservativa** (errata) |
-| Sezione_Costruttiva.dxf / .svg | Dettagli costruttivi della rampa adottata (non realizzabile) |
-| Tavola_Uscita.dxf / .svg | Verifica della rampa adottata R=1500 (transito nei 2 orientamenti, −9.8/−6.7 cm) |
-| rampa_geom.js, verifica_uscita.js, genera_tavola_uscita.js | Modulo+report+generatore della rampa adottata R=1500 |
-| nuova_config.js, compound_config.js, smooth_config.js | Ricerca SAG (arco singolo −0.84 / 2 archi −0.83 / clotoide −4.36): tutti non percorribili |
-| verifica_h.js | Sensibilità clearance in h (one-shot; risultati confluiti nelle tavole `_ottimo`) |
+> **File superati rimossi (02/06/2026).** I file non più mantenuti — `Profilo_Rampa.dxf/.svg`
+> (profilo R=1500 con clearance +1.5cm non conservativa), `Sezione_Costruttiva.dxf/.svg`,
+> `Tavola_Uscita.dxf/.svg` (verifica rampa adottata, −9.8/−6.7 cm), `rampa_geom.js` +
+> `verifica_uscita.js` + `genera_tavola_uscita.js`, gli script di ricerca SAG
+> `nuova_config.js`/`compound_config.js`/`smooth_config.js` (−0.84/−0.83/−4.36) e `verifica_h.js`
+> — sono stati **rimossi dal progetto**. Restano consultabili nella **cronologia git**.
 
 > Nota repo: `Tavole_Rampa.html` (indice SVG) è rigenerabile in locale con `node dxf_to_svg.js`.
 
